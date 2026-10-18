@@ -55,8 +55,12 @@ const FILTER = join(ROOT, 'scripts', 'templates', 'report-filter.lua');
 
 // Text width of a report: A4 minus the 25 and 10 mm margins. Tables as in the
 // report sample: centred, header row centred, rows at least 0.8 cm high.
+// A picture takes at most two thirds of the text height (A4 minus the 20 mm
+// margins): a tall screenshot would otherwise fill the page, and its caption
+// would be pushed onto the next one.
 const LAYOUT = {
   tableWidth: 11906 - 1418 - 567,
+  figureHeight: Math.round((16838 - 1134 - 1134) * 2 / 3),
   list: { left: 1134, hanging: 425, bullet: '–' },
   table: { align: 'center', headerAlign: 'center', rowHeight: 454 }
 };
